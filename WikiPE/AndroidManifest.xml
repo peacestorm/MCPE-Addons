@@ -1,0 +1,13 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.agamer.wikipe" android:versionName="1.0" android:versionCode="0">
+
+    <uses-permission android:name="net.zhuoweizhang.mcpelauncher.ADDON"/>
+    <uses-sdk android:minSdkVersion="14"/>
+
+    <application android:hasCode="false" android:icon="@drawable/ic_launcher" android:label="@string/app_name">
+
+        <meta-data android:name="net.zhuoweizhang.mcpelauncher.api.nativelibname"
+            android:value="com.agamer.wikipe"/>
+    </application>
+
+</manifest>
