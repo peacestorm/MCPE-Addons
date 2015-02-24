@@ -1,2 +1,3 @@
 # MCPE-Addons
-The source of my addons
+This is the source of my addons.
+You can build them using AIDE.
