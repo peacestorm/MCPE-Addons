@@ -5,11 +5,15 @@
 #include <mcpe.h>
 #include <Substrate.h>
 
-#define LOG_TAG "secretitems"
+static std::string (*getGameVersionString_real)();
 
-#define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__))
+static std::string getGameVersionString_hook() {
+	return "MCPE v0.11.0 + SecretItems v1.0";
+}
 
 JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved) {
-	LOGI("Hello world!");
+	void* getGameVersionString = dlsym(RTLD_DEFAULT, "_ZN6Common20getGameVersionStringEv");
+
+	MSHookFunction(getGameVersionString, (void*)&getGameVersionString_hook, (void**)&getGameVersionString_real);
 	return JNI_VERSION_1_2;
 }
